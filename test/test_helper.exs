@@ -1,2 +1,2 @@
-Code.load_file("test/support/reader.exs")
+Code.require_file("test/support/reader.exs", ".")
 ExUnit.start()

@@ -149,8 +149,8 @@ defmodule Sigaws.Util do
   defp expired?({:ok, %DateTime{time_zone: "Etc/UTC"}}, nil), do: :ok
 
   defp expired?({:ok, %DateTime{time_zone: "Etc/UTC"} = dt}, ex) do
-    now_in_unix = DateTime.utc_now() |> DateTime.to_unix(:seconds)
-    expiry_in_unix = DateTime.to_unix(dt, :seconds) + ex
+    now_in_unix = DateTime.utc_now() |> DateTime.to_unix(:second)
+    expiry_in_unix = DateTime.to_unix(dt, :second) + ex
     if expiry_in_unix < now_in_unix, do: @request_expired, else: :ok
   end
 
